@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>eCRF — ANC Tinnitus Trial (CDISC-style)</title>
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#111;margin:0;padding:18px}
+    .container{max-width:900px;margin:0 auto}
+    header{border-bottom:1px solid #e6e6e6;padding-bottom:12px;margin-bottom:18px}
+    h1{font-size:18px;margin:0}
+    p.lead{color:#555;margin:6px 0 0}
+    form{background:#fff;border:1px solid #eee;padding:16px;border-radius:4px}
+    .section{margin-bottom:14px}
+    .section h2{font-size:14px;margin:6px 0 8px;border-left:3px solid #0073e6;padding-left:8px}
+    .field{display:flex;gap:12px;align-items:center;padding:6px 0;border-top:1px solid #fbfbfb}
+    .field:first-of-type{border-top:0}
+    .label{width:320px;color:#222}
+    .input{flex:1}
+    input[type=text],input[type=number],input[type=date],select,textarea{width:100%;padding:8px;border:1px solid #dcdcdc;border-radius:3px;background:#fff}
+    textarea{min-height:70px}
+    .muted{font-size:12px;color:#666}
+    .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+    button{padding:8px 12px;border-radius:3px;border:1px solid #bbb;background:#f5f5f5;cursor:pointer}
+    .primary{background:#0073e6;color:#fff;border-color:#0073e6}
+    .meta{font-family:monospace;font-size:12px;color:#444}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>eCRF — ANC Tinnitus Trial (CDISC-style)</h1>
+      <p class="lead">Industry-style single-column CRF. Each row = one variable. Variable codes (VAR:) shown for mapping. This is the authoritative CRF spec.</p>
+    </header>
+
+    <form>
+
+      <div class="section">
+        <h2>Administrative / Screening</h2>
+        <div class="field"><div class="label">Participant ID <div class="muted">(VAR: participant_id)</div></div><div class="input"><input type="text" name="participant_id" /></div></div>
+        <div class="field"><div class="label">Screening date (YYYY-MM-DD) <div class="muted">(VAR: screen_date)</div></div><div class="input"><input type="date" name="screen_date" /></div></div>
+        <div class="field"><div class="label">Age (years) <div class="muted">(VAR: age)</div></div><div class="input"><input type="number" name="age" min="0" max="120" /></div></div>
+        <div class="field"><div class="label">Sex <div class="muted">(VAR: sex)</div></div><div class="input"><select name="sex"><option value="M">M</option><option value="F">F</option><option value="Other">Other</option></select></div></div>
+        <div class="field"><div class="label">Inclusion criteria met? <div class="muted">(VAR: inc_met)</div></div><div class="input"><select name="inc_met"><option value="Yes">Yes</option><option value="No">No</option></select></div></div>
+        <div class="field"><div class="label">Exclusion reason (if any) <div class="muted">(VAR: excl_reason)</div></div><div class="input"><input type="text" name="excl_reason" /></div></div>
+        <div class="field"><div class="label">Baseline headphone use (hrs/day) <div class="muted">(VAR: baseline_hp_hours)</div></div><div class="input"><input type="number" step="0.1" name="baseline_hp_hours" min="0" max="24" /></div></div>
+        <div class="field"><div class="label">Occupational noise category <div class="muted">(VAR: occ_noise_cat)</div></div><div class="input"><select name="occ_noise_cat"><option>Low</option><option>Medium</option><option>High</option></select></div></div>
+      </div>
+
+      <div class="section">
+        <h2>Baseline — Questionnaires & Medical History</h2>
+        <div class="field"><div class="label">TFI total (0-100) <div class="muted">(VAR: tfi_total)</div></div><div class="input"><input type="number" name="tfi_total" min="0" max="100" /></div></div>
+        <div class="field"><div class="label">TFI subscales (1..8) <div class="muted">(VAR: tfi_sub1 ... tfi_sub8)</div></div><div class="input"><input type="text" name="tfi_subs" placeholder="comma separated" /></div></div>
+        <div class="field"><div class="label">Tinnitus present (Y/N) <div class="muted">(VAR: tinnitus_present)</div></div><div class="input"><select name="tinnitus_present"><option>Yes</option><option>No</option></select></div></div>
+        <div class="field"><div class="label">Tinnitus duration (months) <div class="muted">(VAR: tinnitus_duration_months)</div></div><div class="input"><input type="number" name="tinnitus_duration_months" min="0" /></div></div>
+        <div class="field"><div class="label">Current medications (list) <div class="muted">(VAR: med_list)</div></div><div class="input"><input type="text" name="med_list" /></div></div>
+      </div>
+
+      <div class="section">
+        <h2>Baseline — Audiology (Both ears)</h2>
+        <div class="field"><div class="label">Pure-tone threshold Right 250 Hz (dB HL) <div class="muted">(VAR: pta_r_250)</div></div><div class="input"><input type="number" name="pta_r_250" /></div></div>
+        <div class="field"><div class="label">Right 500 Hz (dB HL) <div class="muted">(VAR: pta_r_500)</div></div><div class="input"><input type="number" name="pta_r_500" /></div></div>
+        <div class="field"><div class="label">Right 1 kHz (dB HL) <div class="muted">(VAR: pta_r_1k)</div></div><div class="input"><input type="number" name="pta_r_1k" /></div></div>
+        <div class="field"><div class="label">Right 2 kHz (dB HL) <div class="muted">(VAR: pta_r_2k)</div></div><div class="input"><input type="number" name="pta_r_2k" /></div></div>
+        <div class="field"><div class="label">Right 4 kHz (dB HL) <div class="muted">(VAR: pta_r_4k)</div></div><div class="input"><input type="number" name="pta_r_4k" /></div></div>
+        <div class="field"><div class="label">Right 8 kHz (dB HL) <div class="muted">(VAR: pta_r_8k)</div></div><div class="input"><input type="number" name="pta_r_8k" /></div></div>
+
+        <div class="field"><div class="label">Left 250 Hz (dB HL) <div class="muted">(VAR: pta_l_250)</div></div><div class="input"><input type="number" name="pta_l_250" /></div></div>
+        <div class="field"><div class="label">Left 500 Hz (dB HL) <div class="muted">(VAR: pta_l_500)</div></div><div class="input"><input type="number" name="pta_l_500" /></div></div>
+        <div class="field"><div class="label">Left 1 kHz (dB HL) <div class="muted">(VAR: pta_l_1k)</div></div><div class="input"><input type="number" name="pta_l_1k" /></div></div>
+        <div class="field"><div class="label">Left 2 kHz (dB HL) <div class="muted">(VAR: pta_l_2k)</div></div><div class="input"><input type="number" name="pta_l_2k" /></div></div>
+        <div class="field"><div class="label">Left 4 kHz (dB HL) <div class="muted">(VAR: pta_l_4k)</div></div><div class="input"><input type="number" name="pta_l_4k" /></div></div>
+        <div class="field"><div class="label">Left 8 kHz (dB HL) <div class="muted">(VAR: pta_l_8k)</div></div><div class="input"><input type="number" name="pta_l_8k" /></div></div>
+
+        <div class="field"><div class="label">PTA average (0.5–4 kHz) Right <div class="muted">(VAR: pta_r_avg)</div></div><div class="input"><input type="number" name="pta_r_avg" /></div></div>
+        <div class="field"><div class="label">PTA average (0.5–4 kHz) Left <div class="muted">(VAR: pta_l_avg)</div></div><div class="input"><input type="number" name="pta_l_avg" /></div></div>
+
+        <div class="field"><div class="label">Tympanometry type Right <div class="muted">(VAR: tymp_r)</div></div><div class="input"><select name="tymp_r"><option>A</option><option>B</option><option>C</option></select></div></div>
+        <div class="field"><div class="label">Tympanometry type Left <div class="muted">(VAR: tymp_l)</div></div><div class="input"><select name="tymp_l"><option>A</option><option>B</option><option>C</option></select></div></div>
+      </div>
+
+      <div class="section">
+        <h2>Baseline — OAE & Psychoacoustics</h2>
+        <div class="field"><div class="label">DPOAE amplitude 1 kHz Right (dB SPL) <div class="muted">(VAR: dpoae_r_1k)</div></div><div class="input"><input type="number" name="dpoae_r_1k" /></div></div>
+        <div class="field"><div class="label">DPOAE amplitude 2 kHz Right <div class="muted">(VAR: dpoae_r_2k)</div></div><div class="input"><input type="number" name="dpoae_r_2k" /></div></div>
+        <div class="field"><div class="label">DPOAE amplitude 4 kHz Right <div class="muted">(VAR: dpoae_r_4k)</div></div><div class="input"><input type="number" name="dpoae_r_4k" /></div></div>
+        <div class="field"><div class="label">DPOAE amplitude 1 kHz Left <div class="muted">(VAR: dpoae_l_1k)</div></div><div class="input"><input type="number" name="dpoae_l_1k" /></div></div>
+        <div class="field"><div class="label">DPOAE amplitude 2 kHz Left <div class="muted">(VAR: dpoae_l_2k)</div></div><div class="input"><input type="number" name="dpoae_l_2k" /></div></div>
+        <div class="field"><div class="label">OAE noise floor (dB SPL) <div class="muted">(VAR: oae_noise_floor)</div></div><div class="input"><input type="number" name="oae_noise_floor" /></div></div>
+
+        <div class="field"><div class="label">Pitch match (Hz) <div class="muted">(VAR: pitch_match_hz)</div></div><div class="input"><input type="number" name="pitch_match_hz" /></div></div>
+        <div class="field"><div class="label">Loudness match (dB SL) <div class="muted">(VAR: loudness_match_db_sl)</div></div><div class="input"><input type="number" name="loudness_match_db_sl" /></div></div>
+        <div class="field"><div class="label">Minimum masking level (dB) <div class="muted">(VAR: mml_db)</div></div><div class="input"><input type="number" name="mml_db" /></div></div>
+      </div>
+
+      <div class="section">
+        <h2>Device Assignment & Telemetry</h2>
+        <div class="field"><div class="label">ANC device model <div class="muted">(VAR: anc_model)</div></div><div class="input"><input type="text" name="anc_model" /></div></div>
+        <div class="field"><div class="label">Device serial <div class="muted">(VAR: anc_serial)</div></div><div class="input"><input type="text" name="anc_serial" /></div></div>
+        <div class="field"><div class="label">Firmware version <div class="muted">(VAR: anc_fw)</div></div><div class="input"><input type="text" name="anc_fw" /></div></div>
+        <div class="field"><div class="label">Telem. last sync date <div class="muted">(VAR: anc_sync_date)</div></div><div class="input"><input type="date" name="anc_sync_date" /></div></div>
+        <div class="field"><div class="label">ANC hours/day (telemetry) <div class="muted">(VAR: anc_hours_daily)</div></div><div class="input"><input type="number" step="0.1" name="anc_hours_daily" min="0" max="24" /></div></div>
+        <div class="field"><div class="label">ANC mode ON? <div class="muted">(VAR: anc_mode_on)</div></div><div class="input"><select name="anc_mode_on"><option>Yes</option><option>No</option></select></div></div>
+        <div class="field"><div class="label">Other headphone use (model + hrs/day) <div class="muted">(VAR: other_hp_info)</div></div><div class="input"><input type="text" name="other_hp_info" placeholder="model,hours" /></div></div>
+      </div>
+
+      <div class="section">
+        <h2>Exposure / Dosimetry</h2>
+        <div class="field"><div class="label">LAeq daily (dB(A)) <div class="muted">(VAR: LAeq_daily)</div></div><div class="input"><input type="number" step="0.1" name="LAeq_daily" min="0" max="140" /></div></div>
+        <div class="field"><div class="label">Max Lpeak (dB(A)) <div class="muted">(VAR: Lpeak_max)</div></div><div class="input"><input type="number" name="Lpeak_max" /></div></div>
+        <div class="field"><div class="label">% time >85 dB <div class="muted">(VAR: pct_time_above_85dB)</div></div><div class="input"><input type="number" name="pct_time_above_85dB" min="0" max="100" /></div></div>
+        <div class="field"><div class="label">Dosimeter worn hours/day <div class="muted">(VAR: dosimeter_worn_hours)</div></div><div class="input"><input type="number" step="0.1" name="dosimeter_worn_hours" min="0" max="24" /></div></div>
+      </div>
+
+      <div class="section">
+        <h2>QoL & Mental Health</h2>
+        <div class="field"><div class="label">PSQI total <div class="muted">(VAR: psqi_total)</div></div><div class="input"><input type="number" name="psqi_total" min="0" max="21" /></div></div>
+        <div class="field"><div class="label">HADS Anxiety <div class="muted">(VAR: hads_anxiety)</div></div><div class="input"><input type="number" name="hads_anxiety" min="0" max="21" /></div></div>
+        <div class="field"><div class="label">HADS Depression <div class="muted">(VAR: hads_depression)</div></div><div class="input"><input type="number" name="hads_depression" min="0" max="21" /></div></div>
+        <div class="field"><div class="label">EQ-5D VAS (0-100) <div class="muted">(VAR: eq5d_vas)</div></div><div class="input"><input type="number" name="eq5d_vas" min="0" max="100" /></div></div>
+      </div>
+
+      <div class="section">
+        <h2>Follow-up Visit Template (use per visit)</h2>
+        <div class="field"><div class="label">Visit name (e.g., M3) <div class="muted">(VAR: visit_name)</div></div><div class="input"><input type="text" name="visit_name" /></div></div>
+        <div class="field"><div class="label">Visit date <div class="muted">(VAR: visit_date)</div></div><div class="input"><input type="date" name="visit_date" /></div></div>
+        <div class="field"><div class="label">TFI total at visit <div class="muted">(VAR: tfi_visit)</div></div><div class="input"><input type="number" name="tfi_visit" min="0" max="100" /></div></div>
+        <div class="field"><div class="label">ANC hours/day (telemetry) at visit <div class="muted">(VAR: anc_hours_visit)</div></div><div class="input"><input type="number" step="0.1" name="anc_hours_visit" /></div></div>
+        <div class="field"><div class="label">Other headphone hours/day <div class="muted">(VAR: other_hp_hours_visit)</div></div><div class="input"><input type="number" step="0.1" name="other_hp_hours_visit" /></div></div>
+        <div class="field"><div class="label">LAeq daily at visit <div class="muted">(VAR: LAeq_daily_visit)</div></div><div class="input"><input type="number" step="0.1" name="LAeq_daily_visit" /></div></div>
+        <div class="field"><div class="label">% time >85 dB at visit <div class="muted">(VAR: pct_time_above_85dB_visit)</div></div><div class="input"><input type="number" name="pct_time_above_85dB_visit" min="0" max="100" /></div></div>
+        <div class="field"><div class="label">PTA thresholds (if taken) — list frequencies with values <div class="muted">(VAR: pta_visit_details)</div></div><div class="input"><input type="text" name="pta_visit_details" placeholder="R250:__,R500:...,L250:..." /></div></div>
+        <div class="field"><div class="label">DPOAE summary (if taken) <div class="muted">(VAR: dpoae_visit)</div></div><div class="input"><input type="text" name="dpoae_visit" /></div></div>
+        <div class="field"><div class="label">Pitch/loudness match (if taken) <div class="muted">(VAR: pitch_loudness_visit)</div></div><div class="input"><input type="text" name="pitch_loudness_visit" placeholder="pitchHz,loudnessdBSL" /></div></div>
+        <div class="field"><div class="label">Adverse events at visit (Y/N) <div class="muted">(VAR: ae_flag_visit)</div></div><div class="input"><select name="ae_flag_visit"><option>No</option><option>Yes</option></select></div></div>
+        <div class="field"><div class="label">If AE, description <div class="muted">(VAR: ae_desc_visit)</div></div><div class="input"><textarea name="ae_desc_visit"></textarea></div></div>
+      </div>
+
+      <div class="actions">
+        <div class="meta">Form version: CDISC-spec v1.0</div>
+        <button type="button">Cancel</button>
+        <button type="button" class="primary">Save CRF</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
